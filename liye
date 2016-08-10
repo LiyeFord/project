@@ -5,6 +5,11 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title></title>
 	<link rel="stylesheet" href="">
+	<style type="text/css" media="screen">
+		a{
+			margin-left:200px;
+		}
+	</style>
 </head>
 <body>
 <p>bootstrap模拟<a href="http://htmlpreview.github.io/?https://github.com/LiyeFord/project/blob/master/bootstarp%E6%A8%A1%E6%8B%9F/index.html" >链接</a></p>
