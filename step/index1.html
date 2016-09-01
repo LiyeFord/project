@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	 <script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+	<style type="text/css" media="screen">
+		body,div,h3,ul,li,p{
+			margin: 0px;padding: 0px;
+		}
+		li{
+			list-style: none;
+			float: left
+		}
+		.content{
+			margin: 0 auto;
+			width: 600px;
+		}
+		#head{
+			border-bottom: 1px solid #B5E61D;
+			margin-top: 150px;
+			padding-bottom: 10px;
+			margin-bottom: 20px;
+		}
+		#head h3{
+			font-size: 18px;
+			
+		}
+		#mian{
+			height: 250px;
+		}
+		#main ul li{
+			line-height: 50px;
+			height: 50px;
+			width: 100px;
+			padding-right: 50px;padding-left: 50px;
+			background:url("../step/stepbg.png") no-repeat 100% 0 #E4E4E4;
+			font-family: "microsoft yahei";color:#6C6C6C;
+		}
+		#main ul li i{
+			margin-right: 5px;font-size: 20px;
+		}
+		#main ul li.current_pre{background-position: 100% -55px;background-color: #E1E1E1}
+		#main ul li.current{color:#fff;background-color: #B5E61D}
+		#main ul li.last{background-image: none;border-radius:0 10px 10px 0;}
+		#main ul li.first{border-radius:10px 0 0 10px; }
+
+
+		.hide{
+			display: none;
+		}
+
+/* 1 */
+		#content_first{
+			clear: both;
+			margin-top: 90px;
+		}
+		#content_first p{
+			margin-bottom: 20px;
+		}
+		#content_first div{
+			position: relative;
+			margin-bottom: 20px;
+		}
+		#content_first input[name="number"]{
+			display: inline-block;height: 25px;width: 200px;
+		}
+		#content_first span{
+			margin-left: 10px;color: red;
+			margin-right: 10px;
+		}
+		#content_first input[name="yzm"]{
+			display: inline-block;height: 25px;width: 100px;
+
+		}
+		#content_first img{
+			position: absolute;top: 0px;
+			display: inline-block;
+			border: 1px solid #ddd;
+			height: 29px;
+		}
+		#content_first a{
+			position: absolute;left: 220px;bottom: 0;
+		}
+		#content_first a:hover{
+			color: #B5E61D;
+		}
+		#content_first button{
+			height: 29px;background-color: #B5E61D;
+			border:none;
+			color: #fff;width: 104px;
+		}
+/* 2 */
+		#content_scend{
+			clear: both;
+			margin-top: 90px;
+		}
+		#content_scend p{
+			margin-bottom: 20px;
+		}
+		#content_scend input{
+			margin: auto 10px;height: 23px;width: 100px;
+		}
+		#content_scend span b{
+			font-size: 8px;
+			color: #555;
+		}
+		#content_scend span button{
+			border: none;
+			height: 29px;color: #fff;background-color: #777;margin-right: 10px;
+		}
+		#content_scend button[type="button"]{
+			border: none;margin-top: 20px;
+			height: 29px;color: #fff;background-color: #B5E61D;width: 100px;
+		}
+
+
+		/* 3 */
+		#content_three{
+			clear: both;
+			margin-top: 90px;
+		}
+		#content_three p{
+			margin-bottom: 20px;
+			font-size: 14px;
+		}
+		#content_three  div{
+			margin-bottom: 20px;
+
+		}
+		#content_three span{
+			width: 200px;
+			color: red;font-size: 10px;
+
+		}
+		#content_three span input{
+			margin-right: 10px;margin-left: 10px;
+			height: 23px;
+
+		}
+		#content_three button{
+			border: none;
+			height: 29px;color: #fff;background-color: #B5E61D;width: 100px;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<section id="head">
+			<h3 class="content">找回密码</h3>
+		</section>
+		<section id="main" class="content">
+			<ul>
+				<li class="first current"><b><i>1</i></b>确认账号</li>
+				<li class=""><b><i>2</i></b>安全验证</li>
+				<li class="last"><b><i>3</i></b>重置密码</li>
+			</ul>
+		</section>
+		<div id="content_first" class="content ">
+			<p>请填写你要找回的账号：</p>
+			<div>
+				<input type="text" name="number"><span>请输入账号或手机号码！</span>
+			</div>
+			<div>
+				<input type="text" name="yzm"><span><img src="yzm2.png" alt=""></span><a href="">忘记密码？</a>
+			</div>
+			<button type="" class="next">下一步</button>
+		</div>
+		<div id="content_scend" class="content hide">
+			<p>为了你的账号安全，请完成身份验证！</p>
+			<p>手机号:  189******68</p>
+			<div>
+				<span>手机验证码:<input type="text" name="yzm"></input><button >发送验证码</button type=""><b>验证码已发送</b></span>
+			</div>
+			<button type="button" class="next">下一步</button>
+		</div>
+		<div id="content_three" class="content  hide">
+			<p>你正在找回的账号是：linye</p>
+			<div>
+				输入新密码:<span><input type="text"></input>密码长度为6~14位，字母区分大小写</span>
+			</div>
+			<div>
+				确认新密码:<span><input type="text"></input>两次输入的密码不一致</span>
+			</div>
+			<button type="">确认</button>
+		</div>
+	</div>
+	
+
+	<script>
+		
+	$(function(){
+		$('input').blur(function(){
+			var value=$(this).val();
+			if(value===''){
+				alert('不能为空');
+			}else{
+				$('.next').on('click',function(){
+					var content=$(this).parent().attr('id');
+					$(this).parent().addClass('hide').next().removeClass('hide');
+					var title=$(this).parent().siblings('#main');
+					if(content==='content_first'){
+						title.find('li').eq(0).removeClass('current').addClass('current_pre');
+						title.find('li').eq(1).addClass('current');
+					}
+					if(content==='content_scend'){
+						title.find('li').eq(0).removeClass('current_pre');
+						title.find('li').eq(1).removeClass('current').addClass('current_pre');
+						title.find('li').eq(2).addClass('current');
+					}
+				})
+			}
+		})
+
+
+	})
+	</script>
+</body>
+</html>
