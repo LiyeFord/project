@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>Examples</title>
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<link href="" rel="stylesheet">
+	<style type="text/css">
+		body{padding:0;margin:0;}
+		ul{padding:0;margin:0;}
+		ul li{list-style-type:none;padding:0;margin:0;}
+		a{color:black;text-decoration:none;}
+		.wrap{width:250px;margin:100px auto;border:1px solid #0088d2;}
+		.toggle-list{}
+		.list-item-title{background-color:#0088d2;color:white;margin:0;padding:8px 10px;font-size:16px;font-weight:normal;cursor:pointer;border-bottom:1px solid white;}
+		.list-item-child .child-list{height:35px;line-height:35px;padding-left:10px;}
+		.list-item-child .child-list a{display:block;}
+		.list-item-child .child-list a:hover{color:#0088d2;}
+		.hide{display: none;}
+	</style>
+</head>
+<body>
+	<!-- personal-sidebar -->
+	<div class="wrap" >
+		<ul class="toggle-list" id="sideBar">
+			<li class="toggle-list-item" >
+				<h3 class="list-item-title">信息管理</h3>
+				<ul class="list-item-child hide">
+					<li class="child-list">
+						<a href="#">我的个人主页</a>
+					</li>
+					<li class="child-list">
+						<a href="#">用户信息</a>
+					</li>
+					<li class="child-list">
+						<a href="#">跟踪包裹</a>
+					</li>
+					<li class="child-list">
+						<a href="#">日记</a>
+					</li>
+				</ul>
+			</li>
+			<li class="toggle-list-item">
+				<h3 class="list-item-title">订单管理</h3>
+				<ul class="list-item-child hide">
+					<li class="child-list">
+						<a href="#">我的订单</a>
+					</li>
+					<li class="child-list">
+						<a href="#">收货地址</a>
+					</li>
+					<li class="child-list">
+						<a href="#">我的收藏</a>
+					</li>
+					<li class="child-list">
+						<a href="#">缺货登记</a>
+					</li>
+				</ul>
+			</li>
+			<li class="toggle-list-item">
+				<h3 class="list-item-title">财务</h3>
+				<ul class="list-item-child hide">
+					<li class="child-list">
+						<a href="#">我的红包</a>
+					</li>
+					<li class="child-list">
+						<a href="#">资金管理</a>
+					</li>
+				</ul>
+			</li>
+			<li class="toggle-list-item">
+				<h3 class="list-item-title">登录管理</h3>
+				<ul class="list-item-child hide">
+					<li class="child-list">
+						<a href="#">退出管理</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<script type="text/javascript" src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
+	<script type="text/javascript">
+		(function($,window,document,undefined){
+			$.fn.sideBarToggle=function(option){
+				this.default={
+					titleH:undefined,//作为展示的标题头
+					contentShow:undefined,//作为展示的内容
+					showType:1,//显示的效果是怎么样的【只能显式一个，可以全部关闭】【必须显式一个】【可以全部显式】分别对应[1,2,3]
+					speed:600,//手风琴展开的速度
+					event:"click",//默认事件默认为click事件，还可以用mouseover
+				}
+				this.options=$.extend({},this.default,option);
+				var $this=this;
+				this.find(this.options.titleH).css("cursor","pointer");
+				this.find(this.options.titleH).bind($this.options.event,function(){
+					var $next=$(this).next($this.options.contentShow);
+					switch($this.options.showType) {
+						case 1:
+							// 只能显式一个，可以全部关闭
+							$this.showType($next);
+							break;
+						case 2:
+							// 必须显式一个
+							if($next.is(":visible")){
+								return false;
+							}
+							$this.showType($next);
+							break;
+						case 3:
+							// 可以全部显式
+							$this.showType($next,1);
+							break;
+						default:
+							console.log('没有这种效果!');
+							break;
+					}
+				})
+				this.showType=function(ele,num){
+					if(num==1){
+						if(ele.hasClass('seleted-fold')){
+							ele.removeClass('seleted-fold').slideUp($this.options.speed)
+						}else{
+							ele.addClass('seleted-fold').slideDown($this.options.speed);
+						}
+					}else{
+						if(ele.hasClass('seleted-fold')){
+							ele.removeClass('seleted-fold').slideUp($this.options.speed)
+						}else{
+							$($this.options.contentShow).slideUp($this.options.speed).removeClass('seleted-fold');
+							ele.addClass('seleted-fold').slideDown($this.options.speed);
+						}
+					}
+				}
+			}
+		})(jQuery,window,document);
+		$('#sideBar').sideBarToggle({
+			titleH:".list-item-title",
+			contentShow:".toggle-list-item .list-item-child",
+			showType:1,
+			speed:500,
+			event:"click",
+		})
+	</script>
+</body>
+</html>
